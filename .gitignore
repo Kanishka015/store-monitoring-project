@@ -1,0 +1,13 @@
+# Virtual Environment
+.venv/
+
+# Database
+store.db
+
+# Large data files
+data/
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
