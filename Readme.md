@@ -70,3 +70,27 @@ This gives you an interactive page to test all APIs.
 - The system converts all store timings into UTC for fair comparison.
 - It assumes a store’s status stays the same until the next check (forward-fill method).
 - Using this, it calculates uptime and downtime within business
+
+## Future Improvements that can be made:
+
+
+### 1. Store Report Status in a Database
+- Currently, report status (like Running or Completed) is saved only in memory.
+- If the server restarts, this information is lost.
+- A better approach is to save it in a database table with details such as:
+  - report ID  
+  - status  
+  - file path  
+  - timestamp  
+
+### 2. Improve Time Calculations
+- Right now, uptime and downtime for a day or hour are estimated by scaling from the weekly value.
+- A more accurate method would be to calculate directly for:
+  - the last 24 hours  
+  - the last 1 hour  
+- This would use more processing power but give more precise results.
+
+### 3. Dockerize the App
+- Running the app inside a Docker container makes it easier to deploy anywhere.
+- Dependencies stay consistent across environments.
+- Docker Compose can also be used to run supporting services (like Redis if Celery is added).
